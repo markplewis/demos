@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Container Queries coffee</title>
+    <link rel="stylesheet" href="./assets/base-styles.css">
+    <style>
+      .page {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        gap: 40px;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        /* Create a named containment context */
+        container-type: inline-size;
+        container-name: main;
+      }
+      .card {
+        /* Create a named containment context */
+        container-type: inline-size;
+        container-name: card;
+      }
+      .coffee h2::after {
+        content: " (small)";
+      }
+      .coffee p {
+        display: none;
+      }
+      /* When .coffee is > 300px wide */
+      @container card (inline-size > 300px) {
+        .coffee-scope-card h2::after {
+          content: " (medium)";
+        }
+        .coffee-scope-card p {
+          display: block;
+        }
+      }
+      /* When main is > 600px wide */
+      @container main (inline-size > 600px) {
+        .coffee-scope-main h2::after {
+          content: " (medium)";
+        }
+        .coffee-scope-main p {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 style="text-align: center; font-size: 1.6rem;">
+        Container query demo with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries#container-name_2">named containers</a>
+      </h1>
+    </header>
+    <div class="page">
+      <main>
+        <article class="card">
+          <div class="coffee coffee-scope-card">
+            <h2>Card</h2>
+            <img src="./assets/cof-espresso.jpg" />
+            <p>
+              Espresso is the name of a highly concentrated, bittersweet coffee
+              originating in Italy in the early 20th century. Each shot of
+              espresso is made to order upon customer request, as opposed to being
+              brewed in anticipation of demand.
+            </p>
+            <a href="http://coffee.com/mocha">Learn more</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="coffee coffee-scope-card">
+            <h2>Card</h2>
+            <img src="./assets/cof-espresso.jpg" />
+            <p>
+              Espresso is the name of a highly concentrated, bittersweet coffee
+              originating in Italy in the early 20th century. Each shot of
+              espresso is made to order upon customer request, as opposed to being
+              brewed in anticipation of demand.
+            </p>
+            <a href="http://coffee.com/mocha">Learn more</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="coffee coffee-scope-main">
+            <h2>Card</h2>
+            <img src="./assets/cof-espresso.jpg" />
+            <p>
+              Espresso is the name of a highly concentrated, bittersweet coffee
+              originating in Italy in the early 20th century. Each shot of
+              espresso is made to order upon customer request, as opposed to being
+              brewed in anticipation of demand.
+            </p>
+            <a href="http://coffee.com/mocha">Learn more</a>
+          </div>
+        </article>
+      </main>
+      <aside>
+        <p>Dark skinny aroma blue mountain aroma organic caffeine, galão robust, galão at, turkish galão grounds, black, whipped white crema roast cappuccino. Roast aroma cup cinnamon body foam, siphon con panna, and grounds bar  id aged est flavour caffeine plunger pot spoon lungo pumpkin spice cultivar aroma.</p>
+      </aside>
+    </div>
+  </body>
+</html>

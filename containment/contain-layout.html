@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Containment</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: sans-serif;
+        font-size: 100%;
+        margin: 20px;
+      }
+      h1 {
+        margin: 30px 0;
+        text-align: center;
+        font-size: 1.6rem;
+      }
+      p {
+        margin: 10px 0 30px 0;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .container {
+        border: 1px solid #999;
+        margin-bottom: 20px;
+      }
+      .contained {
+        contain: layout;
+      }
+      .floater {
+        background-color: #CCC;
+        padding: 10px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Testing out <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Containment">CSS Containment</a> (layout)
+      </h1>
+    </header>
+    <main>
+      <div class="container contained">
+        <h2>Contained</h2>
+        <p>Dark skinny aroma blue mountain aroma organic caffeine, galão robust, galão at, turkish galão grounds.</p>
+        <p>Black, whipped white crema roast cappuccino. Roast aroma cup cinnamon body foam, siphon con panna, and grounds bar.</p>
+        <p>Aged est flavour caffeine plunger pot spoon lungo pumpkin spice cultivar aroma.</p>
+        <button>Hello</button>
+        <div class="floater">I'm floating!</div>
+      </div>
+      <div class="container">
+        <h2>Not contained</h2>
+        <p>Dark skinny aroma blue mountain aroma organic caffeine, galão robust, galão at, turkish galão grounds.</p>
+        <p>Black, whipped white crema roast cappuccino. Roast aroma cup cinnamon body foam, siphon con panna, and grounds bar.</p>
+        <p>Aged est flavour caffeine plunger pot spoon lungo pumpkin spice cultivar aroma.</p>
+        <button>Hello</button>
+        <div class="floater">I'm floating!</div>
+      </div>
+    </main>
+  </body>
+</html>
